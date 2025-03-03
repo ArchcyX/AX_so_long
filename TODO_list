@@ -22,16 +22,16 @@
 ||------------------[ Searching List ]----------------------||
 
 - .ber uzantısı
-
+- dsf function algorithm
+- flood fill
 
 ||------------------[Funciton List]-------------------------||
 
 - Map Control
-    - Map dosyasını al ve oku
-    - Map dosyasının içerisinde karakter kontrolü
     - Map dosyası size Control
-
-
+    - Leak ve error düzelt malloc yer açmalarına ve struct yapılarını kontrol et
+    - Map dosyasının içerisinde karakter kontrolü
+    
 
 ||-----------------------
 
