@@ -48,6 +48,8 @@ void    map_tile_size(t_map *map)
                 map->exit++;
             else if (map->map_pattern[i][j] == 'C')
                 map->collectables++;
+			else if (map->map_pattern[i][j] != 1 || map->map_pattern[i][j] != 0)
+				ft_error("Invalid Map tile elements");
         }
     }
 }

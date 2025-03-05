@@ -27,10 +27,7 @@
 ||-------------------[Funciton List]-------------------------||
 
 - Map Control
-    - Map dosyası size Control
     - Leak ve error düzelt malloc yer açmalarına ve struct yapılarını kontrol et
-    - Map dosyasının içerisinde karakter kontrolü
-    - Map dosya uzantısının kontrolünü yap
 ||-----------------------
 
 - Error 10 = arg count error
