@@ -28,6 +28,8 @@
 
 - Map Control
     - Leak ve error düzelt malloc yer açmalarına ve struct yapılarını kontrol et
+    - Player road control yap ve map control bitir
+    - XPM to image dönüşümlerine başla
 ||-----------------------
 
 - Error 10 = arg count error
