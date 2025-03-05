@@ -1,7 +1,7 @@
 #include "../includes/so_long.h"
 #include "../includes/get_next_line/get_next_line.h"
 
-int map_size_control(t_map *map)
+/*int map_size_control(t_map *map)
 {
     int     fd;
     int     i;
@@ -33,3 +33,4 @@ int map_control(t_map *map)
     checker = 0;
     checker = map_size_control(map);
 }
+*/
