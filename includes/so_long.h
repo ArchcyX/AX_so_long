@@ -13,8 +13,10 @@ typedef struct s_map {
     int     width;
     int     height;
     int     collectables;
-    int    player;
-    int    exit;
+    int     player;
+    int     exit;
+    int     player_x;
+    int     player_y;
 }   t_map;
 
 typedef struct s_player {
@@ -28,7 +30,7 @@ void    calculate_size(t_map *map, int fd);
 void    map_creator(t_map *map, char *file_path);
 
 //#########[ERROR AND FREE FUNCTIONS] #######//
-void    ft_error(char *error);
+void    ft_error(char *error, t_map *map);
 void	matris_free(char **str);
 
 //#########[MAP-CREAT FUNCTIONS] #######//

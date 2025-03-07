@@ -37,8 +37,10 @@ void matris_free(char **str)
     str = NULL;
 }
 
-void	ft_error(char *error)
+void	ft_error(char *error, t_map *map)
 {
 	printf("%s", error);
+    if (map != NULL)
+        matris_free(map->map_pattern);
 	exit(1);
 }

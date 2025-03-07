@@ -20,6 +20,6 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 		init_map(&map, argv[1]);
 	else
-		ft_error("Invalid Argument : </maps/map.ber>");
+		ft_error("Invalid Argument : </maps/map.ber>", NULL);
 	return (0);
 }
