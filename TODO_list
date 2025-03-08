@@ -24,8 +24,8 @@
 ||-------------------[Funciton List]-------------------------||
 
 - Map Control
-    - Wall control fonksiyonunu tamamla
-    - Player road control yap ve map control bitir
+    - leak ve error düzelt
+    - dfs kontrolü yap
     - XPM to image dönüşümlerine başla
     - header file düzenle
     -gereksiz kütüphaneleri düzenle
