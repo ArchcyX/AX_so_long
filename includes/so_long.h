@@ -34,9 +34,13 @@ void    ft_error(char *error, t_map *map);
 void	matris_free(char **str);
 
 //#########[MAP-CREAT FUNCTIONS] #######//
-void     map_control(t_map *map);
-void     map_tile_size(t_map *map);
+void    map_control(t_map *map);
+void    map_tile_size(t_map *map);
 int     map_tile_control(t_map *map);
+int     map_wall_control(t_map *map, int x, int y);
+//#########[MAP-CREAT FUNCTIONS] #######//
+void    map_dfs_control(char **visited,int px, int py, t_map *map);
+
 #endif
 
 /*

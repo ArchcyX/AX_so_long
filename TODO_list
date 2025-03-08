@@ -20,9 +20,6 @@
 
 ||------------------[ Searching List ]----------------------||
 
-- .ber uzantısı
-- dsf function algorithm
-- flood fill
 
 ||-------------------[Funciton List]-------------------------||
 
@@ -30,6 +27,8 @@
     - Wall control fonksiyonunu tamamla
     - Player road control yap ve map control bitir
     - XPM to image dönüşümlerine başla
+    - header file düzenle
+    -gereksiz kütüphaneleri düzenle
 ||-----------------------
 
 - Error 10 = arg count error

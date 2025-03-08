@@ -43,8 +43,12 @@ void    map_tile_size(t_map *map)
         while (map->map_pattern[i][++j] != '\n')
         {
             if (map->map_pattern[i][j] == 'P')
+			{
+				map->player_x = j;
+				map->player_y = i;
                 map->player++;
-            else if (map->map_pattern[i][j] == 'E')
+			}
+			else if (map->map_pattern[i][j] == 'E')
                 map->exit++;
             else if (map->map_pattern[i][j] == 'C')
                 map->collectables++;
