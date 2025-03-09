@@ -20,7 +20,7 @@
 # endif
 
 char	*get_next_line(int fd);
-void	*ft_calloc(size_t nmemb, size_t size);
+void	*get_calloc(size_t nmemb, size_t size);
 char	*ft_strchr(const char *s, int c);
 size_t	get_strlen(const char *s);
 char	*get_strjoin(char const *s1, char const *s2);

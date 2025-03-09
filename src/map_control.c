@@ -1,5 +1,6 @@
-#include "../includes/so_long.h"
-#include "../includes/get_next_line/get_next_line.h"
+#include "so_long.h"
+#include "get_next_line/get_next_line.h"
+#include "libft/libft.h"
 #include <stdio.h>
 
 int map_wall_control(t_map *map, int x, int y)
@@ -55,15 +56,22 @@ void    map_dfs_control(char **visited,int px, int py, t_map *map)
 void    map_control(t_map *map)
 {
     char    **visited;
+    int     i;
 
-    visited = (char **)malloc(sizeof(map->map_pattern));
+    i = 0;
+    visited = (char **)ft_calloc(sizeof(char *), map->height);
     if (!visited)
         ft_error("Malloc Error", map);
     if (map->player != 1 || map->exit != 1 || map->collectables <= 0)
         ft_error("\nMap element counts must {player = 1,\n Exit = 1,\n Collectable != 0}", map);
     if(!map_wall_control(map, -1, -1))
-         ft_error("The map must be completely surrounded by walls.", map);
-    visited = map->map_pattern;
+        ft_error("The map must be completely surrounded by walls.", map);
+    while (i < map->height)
+    {
+        if (map->map_pattern[i])
+            visited[i] = ft_strdup(map->map_pattern[i]);
+        i++;
+    }
     map_dfs_control(visited, map->player_x, map->player_y, map);
     matris_free(visited);
     if (map->exit != 0 || map->collectables != 0)

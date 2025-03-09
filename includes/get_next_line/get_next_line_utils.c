@@ -38,7 +38,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*get_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*tmp;
 	size_t			i;
@@ -74,7 +74,7 @@ char	*get_strjoin(char *data, char	*buffer)
 
 	data_len = get_strlen(data);
 	buf_len = get_strlen(buffer);
-	new_data = (char *)ft_calloc((buf_len + data_len + 1), sizeof(char));
+	new_data = (char *)get_calloc((buf_len + data_len + 1), sizeof(char));
 	if (!new_data)
 		return (ft_double_free(data, 0));
 	i = -1;

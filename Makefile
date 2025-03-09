@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = cc
-CFLAGS = -g
+CFLAGS = -g -Iincludes
 
 # Directories
 SRC_DIR = src

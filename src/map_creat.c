@@ -12,6 +12,7 @@
 
 #include "../includes/so_long.h"
 #include "../includes/libft/libft.h"
+#include "../includes/libft/libft.h"
 #include <stdio.h>
 
 void	init_map(t_map *map, char *file_path)
