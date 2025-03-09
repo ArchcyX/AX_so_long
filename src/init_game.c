@@ -5,16 +5,25 @@
 
 int key_event(int keycode, t_game *game)
 {
-	printf("naber müdür: %d\n", keycode);
+	static int	multiplexer_x;
+	static int	multiplexer_y;
+
+	multiplexer_x = 0;
+	multiplexer_y = 0;
 	if (keycode == 65307)
 		ft_error("exit", &game->map);
+	else if (keycode == 13)
+	{
+		printf("test");
+		mlx_put_image_to_window(game->mlx, game->window, game->wall_img, game->map.player_y, game->map.player_x );
+		mlx_put_image_to_window(game->mlx, game->window, game->player_img, game->map.player_y - multiplexer_y, game->map.player_x );
+		multiplexer_y -= 10;
+	}
 }
 
 int mouse_event(int button, int x, int y, t_game *game)
 {
 	printf("Mouse clicked at (%d, %d) with button %d\n", x, y, button);
-	printf("%p\n", game->collectable_img);
-	mlx_put_image_to_window(game->mlx, game->window, game->collectable_img, x, y);
 	return (0);
 }
 
@@ -29,7 +38,7 @@ void    fill_map(t_game *game)
 	j = 0;
 	multiplexer_x = 0;
 	multiplexer_y = 0;
-	while (game->map.map_pattern[i])
+	while (i < game->map.height - 1)
 	{
 		multiplexer_x = 0;
 		j = 0;
@@ -43,6 +52,13 @@ void    fill_map(t_game *game)
 				mlx_put_image_to_window(game->mlx, game->window, game->exit_img, j + multiplexer_x, i + multiplexer_y );
 			else if (game->map.map_pattern[i][j] == 'C')
 				mlx_put_image_to_window(game->mlx, game->window, game->collectable_img,j + multiplexer_x, i + multiplexer_y );
+			else if (game->map.map_pattern[i][j] == 'P')
+			{
+				mlx_put_image_to_window(game->mlx, game->window, game->place_img,j + multiplexer_x, i + multiplexer_y );
+				mlx_put_image_to_window(game->mlx, game->window, game->player_img,j + multiplexer_x, i + multiplexer_y );
+				game->map.player_x = multiplexer_y + i;
+				game->map.player_y = multiplexer_x + j;
+			}
 			multiplexer_x += 64;
 			j++;
 		}
@@ -78,7 +94,9 @@ void    init_game(t_game *game)
 		game->wall_img = mlx_xpm_file_to_image(game->mlx, "textures/example/wall.xpm", &w, &h);
 	if (game->wall_img == NULL)
 		ft_error("asdasd  ", &game->map);
-	printf("%p %d %d\n", game->collectable_img, w,h);
+	game->player_img = mlx_xpm_file_to_image(game->mlx, "textures/example/player.xpm", &w, &h);
+	if (game->wall_img == NULL)
+		ft_error("asdasd  ", &game->map);
 	mlx_hook(game->window, 2, KeyPressMask, key_event, game); // 2 = KeyPress, KeyPressMask = 1L << 0
 	mlx_hook(game->window, 4, ButtonPressMask, mouse_event, game);   // 4 = ButtonPress
 	fill_map(game);

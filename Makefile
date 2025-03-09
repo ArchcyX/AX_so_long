@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = cc
-CFLAGS = -g -Iincludes
+CFLAGS = -g -Iincludes -I/usr/include/X11
 
 # Directories
 SRC_DIR = src
@@ -19,7 +19,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 MLX = $(MLX_DIR)/libmlx.a
 
 # Linking flags
-MLX_FLAGS = -L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11 -lm
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -L/usr/lib/x86_64-linux-gnu -lXext -lX11 -lm
 LIBFT_FLAGS = -L$(LIBFT_DIR) -lft
 
 # Rules
