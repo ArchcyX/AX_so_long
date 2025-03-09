@@ -22,25 +22,25 @@ void	free_imp(char *str)
 
 void matris_free(char **str)
 {
-    int i;
+	int i;
 
-    if (!str)
-        return;
-    i = 0;
-    while (str[i])
-    {
-        free_imp(str[i]);
-        str[i] = NULL;
-        i++;
-    }
-    free(str);
-    str = NULL;
+	if (!str)
+		return;
+	i = 0;
+	while (str[i])
+	{
+		free_imp(str[i]);
+		str[i] = NULL;
+		i++;
+	}
+	free(str);
+	str = NULL;
 }
 
 void	ft_error(char *error, t_map *map)
 {
 	printf("%s", error);
-    if (map != NULL)
-        matris_free(map->map_pattern);
+	if (map != NULL)
+		matris_free(map->map_pattern);
 	exit(1);
 }
