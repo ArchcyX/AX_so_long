@@ -19,13 +19,21 @@ typedef struct s_map {
     int     player_y;
 }   t_map;
 
-typedef struct s_player {
-    int pos_x;
-    int pos_y;
-}   t_player;
+typedef struct s_game {
+    void    *mlx;
+    void    *window;
+    void    *player_img;
+    void    *collectable_img;
+    void    *exit_img;
+    void    *empyt_img;
+    void    *place_img;
+    void    *wall_img;
+    t_map   map;
+} t_game;
 
 //#########[INIT-FUNCTIONS] #######//
 void    init_map(t_map *map, char *file_path);
+void    init_game(t_game *game);
 void    calculate_size(t_map *map, int fd);
 void    map_creator(t_map *map, char *file_path);
 

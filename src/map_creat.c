@@ -28,7 +28,7 @@ void	init_map(t_map *map, char *file_path)
 	map_creator(map, file_path);
 	map_tile_size(map);
 	map_control(map);
-	matris_free(map->map_pattern);
+	map_tile_size(map);
 	close(fd);
 }
 

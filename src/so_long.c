@@ -15,11 +15,14 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_game	game;
 
-	ft_memset(&map, 0, sizeof(t_map));
+	ft_memset(&game, 0, sizeof(t_game));
 	if (argc == 2)
-		init_map(&map, argv[1]);
+	{
+		init_map(&game.map, argv[1]);
+		init_game(&game);
+	}
 	else
 		ft_error("Invalid Argument : </maps/map.ber>", NULL);
 	return (0);

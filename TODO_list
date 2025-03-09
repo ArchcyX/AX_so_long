@@ -24,12 +24,15 @@
 ||-------------------[Funciton List]-------------------------||
 
 - Map Control
-    - leak ve error düzelt
-    - dfs kontrolü yap
+
     - XPM to image dönüşümlerine başla
     - header file düzenle
     -gereksiz kütüphaneleri düzenle
 ||-----------------------
+
+UNUTMA MAP PATTERN İÇİN SENİN BİR ADET MATRIS FREE ATMAN LAZIM
+
+
 
 - Error 10 = arg count error
 - Error 11 = file descriptor
