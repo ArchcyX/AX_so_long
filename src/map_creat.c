@@ -6,7 +6,7 @@
 /*   By: alermi <alermi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:50:39 by alermi            #+#    #+#             */
-/*   Updated: 2025/03/05 13:51:54 by alermi           ###   ########.fr       */
+/*   Updated: 2025/03/09 15:10:33 by alermi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,32 @@ void	init_map(t_map *map, char *file_path)
 	close(fd);
 }
 
-void    map_tile_size(t_map *map)
+void	map_tile_size(t_map *map)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = -1;
-    while (map->map_pattern[++i])
-    {
-        j = -1;
-        while (map->map_pattern[i][++j] != '\n')
-        {
-            if (map->map_pattern[i][j] == 'P')
+	i = -1;
+	while (map->map_pattern[++i])
+	{
+		j = -1;
+		while (map->map_pattern[i][++j] != '\n')
+		{
+			if (map->map_pattern[i][j] == 'P')
 			{
 				map->player_x = j;
 				map->player_y = i;
-                map->player++;
+				map->player++;
 			}
 			else if (map->map_pattern[i][j] == 'E')
-                map->exit++;
-            else if (map->map_pattern[i][j] == 'C')
-                map->collectables++;
-			else if (map->map_pattern[i][j] != '1' && map->map_pattern[i][j] != '0')
-					ft_error("Invalid Map tile elements", map);
+				map->exit++;
+			else if (map->map_pattern[i][j] == 'C')
+				map->collectables++;
+			else if (map->map_pattern[i][j] != '1'
+				&& map->map_pattern[i][j] != '0')
+				ft_error("Invalid Map tile elements", map);
 		}
-    }
+	}
 }
 
 void	calculate_size(t_map *map, int fd)
@@ -87,7 +88,6 @@ void	calculate_size(t_map *map, int fd)
 		}
 	}
 }
-
 
 // EDIT THIS CODE = input add fd and delete strings
 void	map_creator(t_map *map, char *file_path)

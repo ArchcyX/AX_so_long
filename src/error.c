@@ -20,12 +20,12 @@ void	free_imp(char *str)
 	str = NULL;
 }
 
-void matris_free(char **str)
+void	matris_free(char **str)
 {
-	int i;
+	int	i;
 
 	if (!str)
-		return;
+		return ;
 	i = 0;
 	while (str[i])
 	{

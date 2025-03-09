@@ -1,37 +1,47 @@
-#include "so_long.h"
-#include "get_next_line/get_next_line.h"
-#include "libft/libft.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_control.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alermi <alermi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/09 15:05:01 by alermi            #+#    #+#             */
+/*   Updated: 2025/03/09 15:11:10 by alermi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int map_wall_control(t_map *map, int x, int y)
+#include "../includes/so_long.h"
+#include "../includes/libft/libft.h"
+
+int	map_wall_control(t_map *map, int x, int y)
 {
 	while (++x < map->width)
 	{
 		if (map->map_pattern[0][x] != '1')
-			return 0;
+			return (0);
 	}
 	x = -1;
 	while (++x < map->width)
 	{
 		if (map->map_pattern[map->height - 2][x] != '1')
-			return 0;
+			return (0);
 	}
 	y = 0;
 	while (++y < map->height)
 	{
 		if (map->map_pattern[y - 1][0] != '1')
-			return 0;
+			return (0);
 	}
 	y = 0;
 	while (++y < map->height)
 	{
 		if (map->map_pattern[y - 1][map->width - 1] != '1')
-			return 0;
+			return (0);
 	}
 	return (1);
 }
 
-void    map_dfs_control(char **visited,int px, int py, t_map *map)
+void	map_dfs_control(char **visited, int px, int py, t_map *map)
 {
 	if (visited[py][px] == '1')
 		return ;
@@ -53,18 +63,18 @@ void    map_dfs_control(char **visited,int px, int py, t_map *map)
 	map_dfs_control(visited, px, (py - 1), map);
 }
 
-void    map_control(t_map *map)
+void	map_control(t_map *map)
 {
-	char    **visited;
-	int     i;
+	char	**visited;
+	int		i;
 
 	i = 0;
 	visited = (char **)ft_calloc(sizeof(char *), map->height);
 	if (!visited)
 		ft_error("Malloc Error", map);
 	if (map->player != 1 || map->exit != 1 || map->collectables <= 0)
-		ft_error("\nMap element counts must {player = 1,\n Exit = 1,\n Collectable != 0}", map);
-	if(!map_wall_control(map, -1, -1))
+		ft_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}", map);
+	if (!map_wall_control(map, -1, -1))
 		ft_error("The map must be completely surrounded by walls.", map);
 	while (i < map->height)
 	{

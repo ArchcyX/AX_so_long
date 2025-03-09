@@ -6,7 +6,7 @@
 /*   By: alermi <alermi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:52:04 by alermi            #+#    #+#             */
-/*   Updated: 2025/03/05 13:53:05 by alermi           ###   ########.fr       */
+/*   Updated: 2025/03/09 15:10:21 by alermi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int	main(int argc, char **argv)
 {
 	t_map	map;
-    ft_memset(&map, 0, sizeof(t_map)); // Bütün verilerin içerisine sıfır attık.
+
+	ft_memset(&map, 0, sizeof(t_map));
 	if (argc == 2)
 		init_map(&map, argv[1]);
 	else
