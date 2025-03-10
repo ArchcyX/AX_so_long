@@ -34,27 +34,27 @@ void	init_map(t_map *map, char *file_path)
 
 void	map_tile_size(t_map *map)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = -1;
-	while (map->map_pattern[++i])
+	y = -1;
+	while (map->map_pattern[++y])
 	{
-		j = -1;
-		while (map->map_pattern[i][++j] != '\n')
+		x = -1;
+		while (map->map_pattern[y][++x] != '\n')
 		{
-			if (map->map_pattern[i][j] == 'P')
+			if (map->map_pattern[y][x] == 'P')
 			{
-				map->player_x = j;
-				map->player_y = i;
+				map->player_x = x;
+				map->player_y = y;
 				map->player++;
 			}
-			else if (map->map_pattern[i][j] == 'E')
+			else if (map->map_pattern[y][x] == 'E')
 				map->exit++;
-			else if (map->map_pattern[i][j] == 'C')
+			else if (map->map_pattern[y][x] == 'C')
 				map->collectables++;
-			else if (map->map_pattern[i][j] != '1'
-				&& map->map_pattern[i][j] != '0')
+			else if (map->map_pattern[y][x] != '1'
+				&& map->map_pattern[y][x] != '0')
 				ft_error("Invalid Map tile elements", map);
 		}
 	}
