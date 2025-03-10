@@ -10,9 +10,11 @@ int key_event(int keycode, t_game *game)
 
 	multiplexer_x = 0;
 	multiplexer_y = 0;
+	printf("%d\n", keycode);
+
 	if (keycode == 65307)
 		ft_error("exit", &game->map);
-	else if (keycode == 13)
+	else if (keycode == 119)
 	{
 		printf("test");
 		mlx_put_image_to_window(game->mlx, game->window, game->wall_img, game->map.player_y, game->map.player_x );
