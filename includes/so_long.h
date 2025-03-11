@@ -51,10 +51,10 @@ void    map_dfs_control(char **visited,int px, int py, t_map *map);
 
 
 //###########[PLAYER MOVEMENT]###########//
-void	player_up(t_game *game, int player_x, int player_y);
-void	player_down(t_game *game, int player_x, int player_y);
-void	player_right(t_game *game, int player_x, int player_y);
-void	player_left(t_game *game, int player_x, int player_y);
+// void	player_up(t_game *game, int player_x, int player_y);
+// void	player_down(t_game *game, int player_x, int player_y);
+// void	player_right(t_game *game, int player_x, int player_y);
+// void	player_left(t_game *game, int player_x, int player_y);
 
 #endif
 

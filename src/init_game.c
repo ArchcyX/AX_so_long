@@ -12,6 +12,7 @@
 
 #include "../includes/so_long.h"
 #include "../includes/minilibx-linux/mlx.h"
+#include "../includes/minilibx-linux/mlx_int.h"
 #include <stdio.h>
 
 int	key_event(int keycode, t_game *game)
@@ -25,7 +26,6 @@ int	key_event(int keycode, t_game *game)
 		ft_error("exit", &game->map);
 	else if (keycode == 119)
 	{
-		player_up(game, (player_x * 64), (player_y * 64));
 
 		game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
 		mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, game->map.player_x * 64, game->map.player_y * 64);
