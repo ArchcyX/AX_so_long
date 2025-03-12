@@ -30,18 +30,8 @@ int	key_event(int keycode, t_game *game)
 	return (0);
 }
 
-int	mouse_event(int button, int x, int y, t_game *game)
+void	fill_map(t_game *game, int x, int y)
 {
-	printf("Mouse clicked at (%d, %d) with button %d\n", x, y, button);
-	return (0);
-}
-
-void	fill_map(t_game *game)
-{
-	int	y;
-	int	x;
-
-	y = -1;
 	while (++y < game->map.height - 1)
 	{
 		x = -1;
@@ -60,12 +50,8 @@ void	fill_map(t_game *game)
 				mlx_put_image_to_window(game->mlx, game->window,
 					game->collectable_img, x * 64, y * 64);
 			else if (game->map.map_pattern[y][x] == 'P')
-			{
-				mlx_put_image_to_window(game->mlx, game->window,
-					game->place_img, x * 64, y * 64);
 				mlx_put_image_to_window(game->mlx, game->window,
 					game->player_img, x * 64, y * 64);
-			}
 		}
 	}
 }
@@ -103,8 +89,7 @@ void	init_game(t_game *game)
 		ft_game_error("Error: Window can not be opened", game);
 	init_images(game);
 	mlx_hook(game->window, 2, KeyPressMask, key_event, game);
-	mlx_hook(game->window, 4, ButtonPressMask, mouse_event, game);
-	fill_map(game);
+	fill_map(game, -1, -1);
 	if (mlx_loop(game->mlx))
 		ft_game_error("aga ", game);
 }
