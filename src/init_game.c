@@ -41,29 +41,32 @@ void	fill_map(t_game *game)
 	int	y;
 	int	x;
 
-	y = 0;
-	x = 0;
-	while (y < game->map.height - 1)
+	y = -1;
+	while (++y < game->map.height - 1)
 	{
-		x = 0;
-		while (game->map.map_pattern[y][x] != '\n')
+		x = -1;
+		while (game->map.map_pattern[y][++x] != '\n')
 		{
 			if (game->map.map_pattern[y][x] == '1')
-				mlx_put_image_to_window(game->mlx, game->window, game->wall_img, x * 64, y * 64 );
+				mlx_put_image_to_window(game->mlx, game->window, 
+				game->wall_img, x * 64, y * 64 );
 			else if (game->map.map_pattern[y][x] == '0')
-				mlx_put_image_to_window(game->mlx, game->window, game->place_img,x * 64, y * 64 );
+				mlx_put_image_to_window(game->mlx, 
+				game->window, game->place_img,x * 64, y * 64 );
 			else if (game->map.map_pattern[y][x] == 'E')
-				mlx_put_image_to_window(game->mlx, game->window, game->exit_img, x * 64, y * 64 );
+				mlx_put_image_to_window(game->mlx, game->window, 
+				game->exit_img, x * 64, y * 64 );
 			else if (game->map.map_pattern[y][x] == 'C')
-				mlx_put_image_to_window(game->mlx, game->window, game->collectable_img,x * 64, y * 64 );
+				mlx_put_image_to_window(game->mlx, game->window, 
+				game->collectable_img,x * 64, y * 64 );
 			else if (game->map.map_pattern[y][x] == 'P')
 			{
-				mlx_put_image_to_window(game->mlx, game->window, game->place_img,x * 64, y * 64 );
-				mlx_put_image_to_window(game->mlx, game->window, game->player_img,x * 64, y * 64 );
+				mlx_put_image_to_window(game->mlx, game->window, 
+				game->place_img,x * 64, y * 64 );
+				mlx_put_image_to_window(game->mlx, game->window,
+				game->player_img,x * 64, y * 64 );
 			}
-			x++;
 		}
-		y++;
 	}
 }
 
