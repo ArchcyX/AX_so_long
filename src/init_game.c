@@ -18,7 +18,7 @@
 int	key_event(int keycode, t_game *game)
 {
 	if (keycode == 65307)
-		ft_map_error("exit", &game->map);
+		ft_game_error("exit", game);
 	else if (keycode == 119)
 		player_up(game, 0, -1);
 	else if (keycode == 97)
@@ -77,31 +77,28 @@ void    init_game(t_game *game)
 
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		ft_game_error("Gardaş Oyun Yok TÜH", &game->map);
+		ft_game_error("Gardaş Oyun Yok TÜH", game);
 	game->window = mlx_new_window(game->mlx, game->map.width * 64, game->map.height * 64, "POLAT MEMATİ");
 	if (!game->window)
-		ft_game_error("Gardaş Bennncere yok", &game->map);
+		ft_game_error("Gardaş Bennncere yok", game);
 	game->collectable_img = mlx_xpm_file_to_image(game->mlx, "textures/example/collectable.xpm", &w, &h);
 	if (game->collectable_img == NULL)
-		ft_game_error("asdasd  ", &game->map);
+		ft_game_error("asdasd  ", game);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx, "textures/example/exit.xpm", &w, &h);
 	if (game->exit_img == NULL)
-		ft_game_error("asdasd  ", &game->map);
-	game->empyt_img = mlx_xpm_file_to_image(game->mlx, "textures/example/empty.xpm", &w, &h);
-	if (game->empyt_img == NULL)
-		ft_game_error("asdasd  ", &game->map);
+		ft_game_error("asdasd  ", game);
 	game->place_img = mlx_xpm_file_to_image(game->mlx, "textures/example/grass.xpm", &w, &h);
 	if (game->place_img == NULL)
-		ft_game_error("asdasd  ", &game->map);
+		ft_game_error("asdasd  ", game);
 	game->wall_img = mlx_xpm_file_to_image(game->mlx, "textures/example/wall.xpm", &w, &h);
 	if (game->wall_img == NULL)
-		ft_game_error("asdasd  ", &game->map);
+		ft_game_error("asdasd  ", game);
 	game->player_img = mlx_xpm_file_to_image(game->mlx, "textures/example/player.xpm", &w, &h);
 	if (game->wall_img == NULL)
-		ft_game_error("asdasd  ", &game->map);
+		ft_game_error("asdasd  ", game);
 	mlx_hook(game->window, 2, KeyPressMask, key_event, game); // 2 = KeyPress, KeyPressMask = 1L << 0
 	mlx_hook(game->window, 4, ButtonPressMask, mouse_event, game);   // 4 = ButtonPress
 	fill_map(game);
 	if(mlx_loop(game->mlx))
-		ft_game_error("aga ", &game->map);
+		ft_game_error("aga ", game);
 }

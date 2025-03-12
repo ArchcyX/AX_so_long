@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../includes/minilibx-linux/mlx.h"
 #include <stdio.h>
 
 void	free_imp(char *str)
@@ -48,11 +49,27 @@ void	ft_map_error(char *error, t_map *map)
 void	ft_game_error(char *error, t_game *game)
 {
 	printf("%s", error);
-	if (!game && !&game->map)
+	if (game)
 	{
-		matris_free(game->map.map_pattern);
-		free(game->mlx);
-		free(game->window);
+		if (game->collectable_img)
+			mlx_destroy_image(game->mlx, game->collectable_img);
+		if (game->player_img)
+			mlx_destroy_image(game->mlx, game->player_img);
+		if (game->place_img)
+			mlx_destroy_image(game->mlx, game->place_img);
+		if (game->exit_img)
+			mlx_destroy_image(game->mlx, game->exit_img);
+		if (game->window)
+			mlx_destroy_window(game->mlx, game->window);
+		if (game->mlx)
+		{
+			mlx_destroy_display(game->mlx);
+			free(game->mlx);
+		}
+		if (game->map.map_pattern)
+			matris_free(game->map.map_pattern);
+		free(game);
 	}
 	exit(1);
 }
+
