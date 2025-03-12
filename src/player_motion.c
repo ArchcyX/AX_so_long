@@ -12,40 +12,33 @@
 
 #include "../includes/so_long.h"
 #include "../includes/minilibx-linux/mlx.h"
+#include <stdio.h>
 
-void	player_up(t_game *game, int	*p_pos, void *window, void **img)
+void	player_up(t_game *game, int	x, int y)
 {
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-	mlx_put_image_to_window(game->mlx, window, img[0], p_pos[1], p_pos[0]);
-	game->map.player_y -= 1;
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-	mlx_put_image_to_window(game->mlx, window, img[1], p_pos[1], p_pos[0]);
+	if (game->map.map_pattern[game->map.player_y + y]
+		[game->map.player_x + x] == '1')
+		return ;
+	else if (game->map.map_pattern[game->map.player_y + y]
+		[game->map.player_x + x] == 'E' && game->map.collectables != 0)
+		return ;
+	else if (game->map.map_pattern[game->map.player_y + y]
+		[game->map.player_x + x] == 'C')
+	{
+		game->map.collectables--;
+		game->map.map_pattern[game->map.player_y + y]
+			[game->map.player_x + x] == '0';
+	}
+	else if (game->map.map_pattern[game->map.player_y + y]
+		[game->map.player_x + x] == 'E' && game->map.collectables == 0)
+		ft_error("SUCCES", &game->map);
+	mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, 
+		game->map.player_x * 64, game->map.player_y * 64);
+	game->map.player_y += y;
+	game->map.player_x += x;
+	mlx_put_image_to_window(game->mlx, game->window, game->player_img, 
+		game->map.player_x * 64, game->map.player_y * 64);
+
 }
 
-void	player_down(t_game *game, int player_x, int player_y, void *window)
-{
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-	mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, player_x, player_y);
-	game->map.player_y -= 1;
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-	mlx_put_image_to_window(game->mlx, game->window, game->player_img, player_x, player_y);
-}
-
-void	player_right(t_game *game, int player_x, int player_y, void *window)
-{
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-	mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, player_x, player_y);
-	game->map.player_y -= 1;
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-	mlx_put_image_to_window(game->mlx, game->window, game->player_img, player_x, player_y);
-}
-
-void	player_left(t_game *game, int player_x, int player_y, void *window)
-{
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-	mlx_put_image_to_window(game->mlx, window, game->empyt_img, player_x, player_y);
-	game->map.player_y -= 1;
-	game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-	mlx_put_image_to_window(game->mlx, game->window, game->player_img, player_x, player_y);
-}
 

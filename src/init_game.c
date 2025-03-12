@@ -17,46 +17,17 @@
 
 int	key_event(int keycode, t_game *game)
 {
-	int	player_x;
-	int	player_y;
-
-	player_x = game->map.player_x;
-	player_y = game->map.player_y;
 	if (keycode == 65307)
 		ft_error("exit", &game->map);
 	else if (keycode == 119)
-	{
-
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-		mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, game->map.player_x * 64, game->map.player_y * 64);
-		game->map.player_y -= 1;
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-		mlx_put_image_to_window(game->mlx, game->window, game->player_img, game->map.player_x * 64, game->map.player_y * 64);
-	}
+		player_up(game, 0, -1);
 	else if (keycode == 97)
-	{
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-		mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, game->map.player_x * 64, game->map.player_y * 64);
-		game->map.player_x -= 1;
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-		mlx_put_image_to_window(game->mlx, game->window, game->player_img, game->map.player_x * 64, game->map.player_y * 64);
-	}
-	else if (keycode == 115)
-	{
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-		mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, game->map.player_x * 64, game->map.player_y * 64);
-		game->map.player_y += 1;
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-		mlx_put_image_to_window(game->mlx, game->window, game->player_img, game->map.player_x * 64, game->map.player_y * 64);
-	}
+		player_up(game, -1, 0);
+	else if (keycode == 115)	
+		player_up(game, 0, 1);	
 	else if (keycode == 100)
-	{
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = '0';
-		mlx_put_image_to_window(game->mlx, game->window, game->empyt_img, game->map.player_x * 64, game->map.player_y * 64);
-		game->map.player_x += 1;
-		game->map.map_pattern[game->map.player_y][game->map.player_x] = 'P';
-		mlx_put_image_to_window(game->mlx, game->window, game->player_img, game->map.player_x * 64, game->map.player_y * 64);
-	}
+		player_up(game, 1, 0);
+
 }
 
 int	mouse_event(int button, int x, int y, t_game *game)
