@@ -73,7 +73,8 @@ void	map_control(t_map *map)
 	if (!visited)
 		ft_map_error("Malloc Error", map);
 	if (map->player != 1 || map->exit != 1 || map->collectables <= 0)
-		ft_map_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}", map);
+		ft_map_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}",
+			map);
 	if (!map_wall_control(map, -1, -1))
 		ft_map_error("The map must be completely surrounded by walls.", map);
 	while (i < map->height)

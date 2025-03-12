@@ -73,4 +73,3 @@ void	ft_game_error(char *error, t_game *game)
 	}
 	exit(1);
 }
-

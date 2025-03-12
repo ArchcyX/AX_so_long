@@ -8,6 +8,18 @@
 #include <stdbool.h>
 #include "get_next_line/get_next_line.h"
 
+
+#define W 119
+#define A 97
+#define S 115
+#define D 100
+
+#define P_COLLECT "textures/xpm/collectable.xpm"
+#define P_EXIT "textures/xpm/exit.xpm"
+#define P_PLACE "textures/xpm/place.xpm"
+#define P_WALL "textures/xpm/wall.xpm"
+#define P_PLAYER "textures/xpm/player.xpm"
+
 typedef struct s_map {
     char    **map_pattern;
     int     width;
@@ -36,6 +48,7 @@ void    init_map(t_map *map, char *file_path);
 void    init_game(t_game *game);
 void    calculate_size(t_map *map, int fd);
 void    map_creator(t_map *map, char *file_path);
+void	init_images(t_game *game);
 
 //#########[ERROR AND FREE FUNCTIONS] #######//
 void    ft_map_error(char *error, t_map *map);
