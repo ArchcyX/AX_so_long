@@ -59,16 +59,17 @@ void	ft_game_error(char *error, t_game *game)
 			mlx_destroy_image(game->mlx, game->place_img);
 		if (game->exit_img)
 			mlx_destroy_image(game->mlx, game->exit_img);
+		if (game->wall_img)
+			mlx_destroy_image(game->mlx, game->wall_img);
 		if (game->window)
 			mlx_destroy_window(game->mlx, game->window);
 		if (game->mlx)
-		{
+		{	
 			mlx_destroy_display(game->mlx);
 			free(game->mlx);
 		}
 		if (game->map.map_pattern)
 			matris_free(game->map.map_pattern);
-		free(game);
 	}
 	exit(1);
 }
