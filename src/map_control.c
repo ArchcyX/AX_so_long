@@ -71,11 +71,11 @@ void	map_control(t_map *map)
 	i = 0;
 	visited = (char **)ft_calloc(sizeof(char *), map->height);
 	if (!visited)
-		ft_error("Malloc Error", map);
+		ft_map_error("Malloc Error", map);
 	if (map->player != 1 || map->exit != 1 || map->collectables <= 0)
-		ft_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}", map);
+		ft_map_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}", map);
 	if (!map_wall_control(map, -1, -1))
-		ft_error("The map must be completely surrounded by walls.", map);
+		ft_map_error("The map must be completely surrounded by walls.", map);
 	while (i < map->height)
 	{
 		if (map->map_pattern[i])
@@ -85,5 +85,5 @@ void	map_control(t_map *map)
 	map_dfs_control(visited, map->player_x, map->player_y, map);
 	matris_free(visited);
 	if (map->exit != 0 || map->collectables != 0)
-		ft_error("Map Dynamic Error", map);
+		ft_map_error("Map Dynamic Error", map);
 }

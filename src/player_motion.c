@@ -32,7 +32,7 @@ void	player_up(t_game *game, int	x, int y)
 	}
 	else if (game->map.map_pattern[game->map.player_y + y]
 		[game->map.player_x + x] == 'E' && game->map.collectables == 0)
-		ft_error("SUCCES", &game->map);
+		ft_game_error("SUCCES", game);
 	mlx_put_image_to_window(game->mlx, game->window, game->place_img, 
 		game->map.player_x * 64, game->map.player_y * 64);
 	game->map.player_y += y;

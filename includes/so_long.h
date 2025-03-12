@@ -38,8 +38,9 @@ void    calculate_size(t_map *map, int fd);
 void    map_creator(t_map *map, char *file_path);
 
 //#########[ERROR AND FREE FUNCTIONS] #######//
-void    ft_error(char *error, t_map *map);
+void    ft_map_error(char *error, t_map *map);
 void	matris_free(char **str);
+void	ft_game_error(char *error, t_game *game);
 
 //#########[MAP-CREAT FUNCTIONS] #######//
 void    map_control(t_map *map);

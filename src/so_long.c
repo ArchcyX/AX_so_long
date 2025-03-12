@@ -24,6 +24,6 @@ int	main(int argc, char **argv)
 		init_game(&game);
 	}
 	else
-		ft_error("Invalid Argument : </maps/map.ber>", NULL);
+		ft_map_error("Invalid Argument : </maps/map.ber>", NULL);
 	return (0);
 }

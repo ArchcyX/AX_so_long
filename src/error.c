@@ -37,10 +37,22 @@ void	matris_free(char **str)
 	str = NULL;
 }
 
-void	ft_error(char *error, t_map *map)
+void	ft_map_error(char *error, t_map *map)
 {
 	printf("%s", error);
 	if (map != NULL)
 		matris_free(map->map_pattern);
+	exit(1);
+}
+
+void	ft_game_error(char *error, t_game *game)
+{
+	printf("%s", error);
+	if (!game && !&game->map)
+	{
+		matris_free(game->map.map_pattern);
+		free(game->mlx);
+		free(game->window);
+	}
 	exit(1);
 }
