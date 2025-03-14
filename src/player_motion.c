@@ -12,7 +12,6 @@
 
 #include "../includes/so_long.h"
 #include "../includes/minilibx-linux/mlx.h"
-#include <stdio.h>
 
 void	player_up(t_game *game, int x, int y)
 {

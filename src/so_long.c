@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdio.h>
+#include "../includes/libft/libft.h"
 
 int	main(int argc, char **argv)
 {

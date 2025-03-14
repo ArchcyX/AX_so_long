@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../includes/get_next_line/get_next_line.h"
 #include "../includes/libft/libft.h"
-#include "../includes/libft/libft.h"
-#include <stdio.h>
+
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 void	init_map(t_map *map, char *file_path)
 {
-	int	i;
 	int	fd;
 
-	i = 0;
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		ft_map_error("Map Error", map);
@@ -74,7 +75,7 @@ void	calculate_size(t_map *map, int fd)
 	map->height = 1;
 	while (str)
 	{
-		if ((ft_strlen(str) - 1) != map->width)
+		if ((int)(ft_strlen(str) - 1) != map->width)
 		{
 			free(str);
 			close(fd);
@@ -89,7 +90,6 @@ void	calculate_size(t_map *map, int fd)
 	}
 }
 
-// EDIT THIS CODE = input add fd and delete strings
 void	map_creator(t_map *map, char *file_path)
 {
 	int		fd;

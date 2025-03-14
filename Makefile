@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = cc
-CFLAGS = -g -Iincludes -I/usr/include/X11
+CFLAGS = -Wall -Wextra -Werror
 
 # Directories
 SRC_DIR = src

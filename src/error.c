@@ -12,7 +12,14 @@
 
 #include "../includes/so_long.h"
 #include "../includes/minilibx-linux/mlx.h"
-#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void	ft_putstrup(char *str)
+{
+	while(*str)
+		write(1, str++, 1);
+}
 
 void	free_imp(char *str)
 {
@@ -40,7 +47,7 @@ void	matris_free(char **str)
 
 void	ft_map_error(char *error, t_map *map)
 {
-	printf("%s", error);
+	ft_putstrup(error);
 	if (map != NULL)
 		matris_free(map->map_pattern);
 	exit(1);
@@ -48,7 +55,7 @@ void	ft_map_error(char *error, t_map *map)
 
 void	ft_game_error(char *error, t_game *game)
 {
-	printf("%s", error);
+	ft_putstrup(error);
 	if (game)
 	{
 		if (game->collectable_img)
