@@ -53,7 +53,7 @@ void	map_dfs_control(char **visited, int px, int py, t_map *map)
 	else if (visited[py][px] == 'E')
 	{
 		map->exit--;
-		visited[py][px] = '1';
+		return ;
 	}
 	else
 		visited[py][px] = '1';

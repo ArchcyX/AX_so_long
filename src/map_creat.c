@@ -67,10 +67,7 @@ void	calculate_size(t_map *map, int fd)
 
 	str = get_next_line(fd);
 	if (!str)
-	{
-		free(str);
 		ft_map_error("Map File Error", map);
-	}
 	map->width = ft_strlen(str) - 1;
 	map->height = 1;
 	while (str)
@@ -105,10 +102,7 @@ void	map_creator(t_map *map, char *file_path)
 		ft_map_error("Map Error", map);
 	line = get_next_line(fd);
 	if (!line)
-	{
-		free(line);
 		ft_map_error("Malloc Error", map);
-	}
 	while (line)
 	{
 		map->map_pattern[counter] = line;
