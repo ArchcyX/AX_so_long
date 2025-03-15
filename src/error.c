@@ -17,7 +17,7 @@
 
 void	ft_putstrup(char *str)
 {
-	while(*str)
+	while (*str)
 		write(1, str++, 1);
 }
 

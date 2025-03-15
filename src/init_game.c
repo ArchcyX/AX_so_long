@@ -15,7 +15,7 @@
 #include "../includes/minilibx-linux/mlx_int.h"
 #include <stdio.h>
 
-int close_game(t_game *game)
+int	close_game(t_game *game)
 {
 	ft_game_error("Closed Game", game);
 	return (0);
@@ -35,7 +35,6 @@ int	key_event(int keycode, t_game *game)
 		player_up(game, 1, 0);
 	return (0);
 }
-
 
 void	fill_map(t_game *game, int x, int y)
 {
@@ -63,7 +62,6 @@ void	fill_map(t_game *game, int x, int y)
 	}
 }
 
-
 void	init_images(t_game *game)
 {
 	int	h;
@@ -71,36 +69,37 @@ void	init_images(t_game *game)
 
 	game->collectable_img = mlx_xpm_file_to_image(game->mlx, P_COLLECT, &w, &h);
 	if (game->collectable_img == NULL)
-		ft_game_error("Collectable image not found", game);
+		ft_game_error("Error\nCollectable image not found", game);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx, P_EXIT, &w, &h);
 	if (game->exit_img == NULL)
-		ft_game_error("Exit image not found", game);
+		ft_game_error("Error\nExit image not found", game);
 	game->place_img = mlx_xpm_file_to_image(game->mlx, P_PLACE, &w, &h);
 	if (game->place_img == NULL)
-		ft_game_error("Place image not found", game);
+		ft_game_error("Error\nPlace image not found", game);
 	game->wall_img = mlx_xpm_file_to_image(game->mlx, P_WALL, &w, &h);
 	if (game->wall_img == NULL)
-		ft_game_error("Wall image not found", game);
+		ft_game_error("Error\nWall image not found", game);
 	game->player_img = mlx_xpm_file_to_image(game->mlx, P_PLAYER, &w, &h);
 	if (game->player_img == NULL)
-		ft_game_error("Player image not found", game);
+		ft_game_error("Error\nPlayer image not found", game);
 }
 
 void	init_game(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		ft_game_error("Error: Game can not startet", game);
+		ft_game_error("Error\n Game can not startet", game);
 	if ((game->map.height * 64) > 2160 || (game->map.width * 64) > 3840)
 		ft_game_error("Game Map size so_long", game);
 	game->window = mlx_new_window(game->mlx, game->map.width * 64,
 			(game->map.height - 1) * 64, "POLAT MEMATİ");
 	if (!game->window)
-		ft_game_error("Error: Window can not be opened", game);
+		ft_game_error("Error\n Window can not be opened", game);
 	init_images(game);
+	game->counter = 0;
 	mlx_hook(game->window, 17, 0, close_game, game);
 	mlx_hook(game->window, 2, KeyPressMask, key_event, game);
 	fill_map(game, -1, -1);
 	if (mlx_loop(game->mlx))
-		ft_game_error("aga ", game);
+		ft_game_error("Error\n Game not opened in loop", game);
 }

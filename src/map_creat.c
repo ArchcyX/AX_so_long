@@ -24,7 +24,7 @@ void	init_map(t_map *map, char *file_path)
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
-		ft_map_error("Map Error", map);
+		ft_map_error("Error\nMap Error", map);
 	calculate_size(map, fd);
 	map_creator(map, file_path);
 	map_tile_size(map);
@@ -56,7 +56,7 @@ void	map_tile_size(t_map *map)
 				map->collectables++;
 			else if (map->map_pattern[y][x] != '1'
 				&& map->map_pattern[y][x] != '0')
-				ft_map_error("Invalid Map tile elements", map);
+				ft_map_error("Error\nInvalid Map tile elements", map);
 		}
 	}
 }
@@ -67,7 +67,7 @@ void	calculate_size(t_map *map, int fd)
 
 	str = get_next_line(fd);
 	if (!str)
-		ft_map_error("Map File Error", map);
+		ft_map_error("Error\nMap File Error", map);
 	map->width = ft_strlen(str) - 1;
 	map->height = 1;
 	while (str)
@@ -76,7 +76,7 @@ void	calculate_size(t_map *map, int fd)
 		{
 			free(str);
 			close(fd);
-			ft_map_error("Map Size Error", map);
+			ft_map_error("Error\nMap Size Error", map);
 		}
 		else
 		{
@@ -95,7 +95,7 @@ void	map_creator(t_map *map, char *file_path)
 
 	map->map_pattern = (char **)malloc(sizeof(char *) * map->height);
 	if (!map->map_pattern)
-		return (ft_map_error("Malloc Error", map));
+		return (ft_map_error("Error\nMalloc Error", map));
 	fd = open(file_path, O_RDONLY);
 	counter = 0;
 	if (fd == -1)

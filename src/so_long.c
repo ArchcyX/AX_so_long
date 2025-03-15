@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	ft_memset(&game, 0, sizeof(t_game));
-	if (argc == 2)
+	if (argc == 2 && ft_strlen(argv[1]) > 4
+		&& ft_strnstr(argv[1] + (ft_strlen(argv[1]) - 4), ".ber", 4))
 	{
 		init_map(&game.map, argv[1]);
 		init_game(&game);
