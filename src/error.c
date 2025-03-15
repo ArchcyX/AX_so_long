@@ -53,7 +53,7 @@ void	ft_map_error(char *error, t_map *map)
 	exit(1);
 }
 
-void	ft_game_error(char *error, t_game *game)
+void	ft_game_close(char *error, t_game *game)
 {
 	ft_putstrup(error);
 	if (game)

@@ -57,7 +57,7 @@ void	init_images(t_game *game);
 //#########[ERROR AND FREE FUNCTIONS] #######//
 void	ft_map_error(char *error, t_map *map);
 void	matris_free(char **str);
-void	ft_game_error(char *error, t_game *game);
+void	ft_game_close(char *error, t_game *game);
 
 //#########[MAP-CREAT FUNCTIONS] #######//
 void	init_map(t_map *map, char *file_path);

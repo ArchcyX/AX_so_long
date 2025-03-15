@@ -3,7 +3,6 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
 # Directories
-SRC_DIR = src
 OBJ_DIR = obj
 LIBFT_DIR = includes/libft
 MLX_DIR = includes/minilibx-linux
@@ -12,7 +11,13 @@ GNL_DIR = includes/get_next_line/get_next_line.c \
 
 # Files
 NAME = so_long
-SRCS = $(wildcard $(SRC_DIR)/*.c)
+SRCS =	src/error.c \
+		src/map_control.c \
+		src/player_motion.c \
+		src/init_game.c \
+		src/map_creat.c \
+		src/so_long.c \
+
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 LIBFT = $(LIBFT_DIR)/libft.a
