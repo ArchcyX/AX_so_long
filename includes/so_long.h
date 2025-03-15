@@ -32,6 +32,7 @@ typedef struct s_game {
     void    *empyt_img;
     void    *place_img;
     void    *wall_img;
+    int     counter;
     t_map   map;
 } t_game;
 
