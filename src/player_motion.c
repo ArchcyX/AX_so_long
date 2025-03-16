@@ -33,7 +33,7 @@ void	ft_putnbr(int nb)
 	write(1, &c, 1);
 }
 
-void	player_up(t_game *game, int x, int y)
+void	player_motion(t_game *game, int x, int y)
 {
 	if ((game->map.map_pattern[game->map.player_y + y]
 			[game->map.player_x + x] == '1')

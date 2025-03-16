@@ -1,5 +1,5 @@
 NAME = libft.a
-CFALGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror 
 CC = cc
 RM = rm -rf
 AR = ar rcs
@@ -44,8 +44,12 @@ OBJ = $(FILE:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ) > /dev/null 2>&1
 	@echo "\033[32m✓ built completed\033[0m"
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	@$(RM) $(OBJ)
 	@echo "\033[1;33m✓ objects removed\033[0m"

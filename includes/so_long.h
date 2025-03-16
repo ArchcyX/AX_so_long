@@ -72,6 +72,6 @@ int		map_tile_control(t_map *map);
 int		map_wall_control(t_map *map, int x, int y);
 
 //###########[PLAYER MOVEMENT]###########//
-void	player_up(t_game *game, int x, int y);
+void	player_motion(t_game *game, int x, int y);
 
 #endif

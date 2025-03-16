@@ -26,13 +26,13 @@ int	key_event(int keycode, t_game *game)
 	if (keycode == 65307)
 		ft_game_close("exit", game);
 	else if (keycode == W)
-		player_up(game, 0, -1);
+		player_motion(game, 0, -1);
 	else if (keycode == A)
-		player_up(game, -1, 0);
+		player_motion(game, -1, 0);
 	else if (keycode == S)
-		player_up(game, 0, 1);
+		player_motion(game, 0, 1);
 	else if (keycode == D)
-		player_up(game, 1, 0);
+		player_motion(game, 1, 0);
 	return (0);
 }
 

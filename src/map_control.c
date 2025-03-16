@@ -69,23 +69,22 @@ void	map_control(t_map *map)
 	char	**visited;
 	int		i;
 
-	i = 0;
+	i = -1;
+	if (map->player != 1 || map->exit != 1 || map->collectables <= 0)
+		ft_map_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}",
+			map);
 	visited = (char **)ft_calloc(sizeof(char *), map->height);
 	if (!visited)
 		ft_map_error("Error\nMalloc Error", map);
-	if (map->player != 1 || map->exit != 1 || map->collectables <= 0)
-	{
-		matris_free(visited);
-		ft_map_error("\nMap element counts must {P = 1,\n E = 1,\n C != 0}",
-			map);
-	}
 	if (!map_wall_control(map, -1, -1))
 		ft_map_error("Error\nMap must be completely surrounded by walls.", map);
-	while (i < map->height)
+	while (map->map_pattern[++i] != NULL)
 	{
-		if (map->map_pattern[i])
-			visited[i] = ft_strdup(map->map_pattern[i]);
-		i++;
+		visited[i] = ft_strdup(map->map_pattern[i]);
+		if (visited[i] == NULL)
+			matris_free(visited);
+		if (visited[i] == NULL)
+			ft_map_error("Error\nMalloc Error", map);
 	}
 	map_dfs_control(visited, map->player_x, map->player_y, map);
 	matris_free(visited);
