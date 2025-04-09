@@ -13,7 +13,6 @@
 #include "../includes/so_long.h"
 #include "../includes/get_next_line/get_next_line.h"
 #include "../includes/libft/libft.h"
-
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>

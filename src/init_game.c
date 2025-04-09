@@ -13,7 +13,6 @@
 #include "../includes/so_long.h"
 #include "../includes/minilibx-linux/mlx.h"
 #include "../includes/minilibx-linux/mlx_int.h"
-#include <stdio.h>
 
 int	close_game(t_game *game)
 {
